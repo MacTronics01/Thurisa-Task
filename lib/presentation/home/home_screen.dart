@@ -29,172 +29,179 @@ class HomeScreen extends StatelessWidget {
         body: DefaultTabController(
           length: model.categories?.length ?? 0,
           initialIndex: 0,
-          child: SizedBox(
-            width: width(context),
-            height: height(context),
-            child: Column(
-              children: [
-                74.0.sbH,
-                Container(
-                  margin: EdgeInsets.only(left: 24.w, right: 24.w),
-                  child: Row(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      GestureDetector(
-                        onTap: () {
-                          showCustomToast("No Screen Available", success: false);
-                        },
-                        child: Image.asset(
-                          AppImages.menus,
-                          height: 14.7,
-                          width: 22,
-                          color: Pallet.black,
+          child: SingleChildScrollView(
+            child: SizedBox(
+              width: width(context),
+              height: height(context),
+              child: Column(
+                children: [
+                  74.0.sbH,
+                  Container(
+                    margin: EdgeInsets.only(left: 24.w, right: 24.w),
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        GestureDetector(
+                          onTap: () {
+                            showCustomToast("No Screen Available", success: false);
+                          },
+                          child: Image.asset(
+                            AppImages.menus,
+                            height: 14.7,
+                            width: 22,
+                            color: Pallet.black,
+                          ),
                         ),
-                      ),
-                      GestureDetector(
-                        onTap: () {
-                          showCustomToast("No Screen Available", success: false);
-                        },
-                        child: Image.asset(
-                          AppImages.shop,
-                          height: 24,
-                          width: 24,
-                          color: Pallet.black,
+                        GestureDetector(
+                          onTap: () {
+                            showCustomToast("No Screen Available", success: false);
+                          },
+                          child: Image.asset(
+                            AppImages.shop,
+                            height: 24,
+                            width: 24,
+                            color: Pallet.black,
+                          ),
                         ),
-                      ),
-                    ],
-                  ),
-                ),
-                40.0.sbH,
-                Container(
-                  margin: EdgeInsets.only(left: 24.w),
-                  alignment: Alignment.topLeft,
-                  child: Text(
-                    AppStrings.delicious,
-                    style: getBoldStyle(fontSize: 34),
-                  ),
-                ),
-                24.0.sbH,
-                Container(
-                  margin: EdgeInsets.only(left: 24.w, right: 24),
-                  child: const InputField(
-                    prefixIcon: Icon(
-                      Icons.search,
-                      color: Pallet.black,
-                      size: 24,
+                      ],
                     ),
-                    hintText: "Search",
-                    showCursor: true,
-                    border: InputBorder.none,
                   ),
-                ),
-                24.0.sbH,
-                Expanded(
-                  child: Column(
-                    children: [
-                      24.0.sbH,
-                      Container(
-                        margin:
-                        EdgeInsets.only(bottom: 30.h, left: 24.w),
-                        height: 34.h,
-                        child: TabBar(
-                          splashFactory: NoSplash.splashFactory,
-                          indicatorWeight: 5,
-                          indicatorPadding: EdgeInsets.only(top: 32),
-                          isScrollable: true,
-                          indicator: BoxDecoration(
-                            borderRadius: BorderRadius.circular(50.r),
-                            color: Pallet.primary,
-                          ),
-                          labelColor: Pallet.primary,
-                          unselectedLabelColor: Pallet.grey,
-                          tabs: List<Widget>.generate(
-                            model.categories?.length ?? 0,
-                                (index) {
-                              return Tab(
-                                child: Padding(
-                                  padding: EdgeInsets.symmetric(horizontal: 10.h),
-                                  child: Text(
-                                    "${model.categories?[index].name}",
-                                    style: getLightStyle(fontSize: 17),
+                  40.0.sbH,
+                  Container(
+                    margin: EdgeInsets.only(left: 24.w),
+                    alignment: Alignment.topLeft,
+                    child: Text(
+                      AppStrings.delicious,
+                      style: getBoldStyle(fontSize: 34),
+                    ),
+                  ),
+                  24.0.sbH,
+                  Container(
+                    margin: EdgeInsets.only(left: 24.w, right: 24),
+                    child:  const InputField(
+                      prefixIcon: Icon(
+                        Icons.search,
+                        color: Pallet.black,
+                        size: 24,
+                      ),
+                      hintText: "Search",
+                      showCursor: true,
+                      border: InputBorder.none,
+                    ),
+                  ),
+                  24.0.sbH,
+                  Expanded(
+                    child: Column(
+                      children: [
+                        24.0.sbH,
+                        Container(
+                          margin:
+                          EdgeInsets.only(bottom: 30.h, left: 24.w),
+                          height: 34.h,
+                          child: TabBar(
+                            splashFactory: NoSplash.splashFactory,
+                            indicatorWeight: 5,
+                            indicatorPadding: EdgeInsets.only(top: 32.h),
+                            isScrollable: true,
+                            indicator: BoxDecoration(
+                              borderRadius: BorderRadius.circular(50.r),
+                              color: Pallet.primary,
+                            ),
+                            labelColor: Pallet.primary,
+                            unselectedLabelColor: Pallet.grey,
+                            tabs: List<Widget>.generate(
+                              model.categories?.length ?? 0,
+                                  (index) {
+                                return Tab(
+                                  child: Padding(
+                                    padding: EdgeInsets.symmetric(horizontal: 10.h),
+                                    child: Text(
+                                      "${model.categories?[index].name}",
+                                      style: getLightStyle(fontSize: 17),
+                                    ),
                                   ),
-                                ),
-                              );
-                            },
+                                );
+                              },
+                            ),
                           ),
                         ),
-                      ),
-                      Expanded(
-                        child: TabBarView(
-                          children: List<Widget>.generate(
-                            model.categories?.length ?? 0,
-                                (index) {
-                              return Scaffold(
-                                backgroundColor: Pallet.white5,
-                                body: Column(
-                                  children: [
-                                    const Text(
-                                      'see more',
-                                      style: TextStyle(
-                                        color: Pallet.primary,
-                                        fontSize: 15,
-                                        fontFamily: 'SF Pro Rounded',
-                                        fontWeight: FontWeight.w400,
-                                      ),
-                                    ),
-                                    20.0.sbH,
-                                    Expanded(
-                                      child: FutureBuilder<List<GetProductResponse>?>(
-                                        future: model.getProducts(model.categories?[index].id ?? 0),
-                                        builder: (context, snapshot) {
-                                          if (snapshot.hasData) {
-                                            List<GetProductResponse>? product = snapshot.data;
-                                            if (product?.isEmpty ?? true) {
-                                              return Center(child: Text("No product available"));
-                                            } else {
-                                              return ListView.builder(
-                                                scrollDirection: Axis.horizontal,
-                                                itemCount: product?.length,
-                                                itemBuilder: (_, index) {
-                                                  return CardWidget(
-                                                    title: product?[index].title,
-                                                    price: "#${product?[index].price.toString()}",
-                                                    image: product?[index].images?[0],
-                                                    onTap: () {
-                                                      Navigator.push(
-                                                        context,
-                                                        MaterialPageRoute(builder: (context) =>
-                                                            ProductDetailsScreen(
-                                                              id: product?[index].id,
-                                                            )),
-                                                      );
-                                                    },
-                                                  );
-                                                },
-                                              );
-                                            }
-                                          } else if (snapshot.hasError) {
-                                            return Center(child: Text("Error loading products"));
-                                          } else {
-                                            return const ShimmerCart();
-                                          }
+                        Expanded(
+                          child: TabBarView(
+                            children: List<Widget>.generate(
+                              model.categories?.length ?? 0,
+                                  (index) {
+                                return Scaffold(
+                                  backgroundColor: Pallet.white5,
+                                  body: Column(
+                                    children: [
+                                      GestureDetector(
+                                        onTap:(){
+                                          showCustomToast("Nothing To Load",success: false);
                                         },
+                                        child: const Text(
+                                          'see more',
+                                          style: TextStyle(
+                                            color: Pallet.primary,
+                                            fontSize: 15,
+                                            fontFamily: 'SF Pro Rounded',
+                                            fontWeight: FontWeight.w400,
+                                          ),
+                                        ),
                                       ),
-                                    ),
-                                  ],
-                                ),
-                              );
-                            },
+                                      25.0.sbH,
+                                      Expanded(
+                                        child: FutureBuilder<List<GetProductResponse>?>(
+                                          future: model.getProducts(model.categories?[index].id ?? 0),
+                                          builder: (context, snapshot) {
+                                            if (snapshot.hasData) {
+                                              List<GetProductResponse>? product = snapshot.data;
+                                              if (product?.isEmpty ?? true) {
+                                                return Center(child: Text("No product available"));
+                                              } else {
+                                                return ListView.builder(
+                                                  scrollDirection: Axis.horizontal,
+                                                  itemCount: product?.length,
+                                                  itemBuilder: (_, index) {
+                                                    return CardWidget(
+                                                      title: product?[index].title,
+                                                      price: "#${product?[index].price.toString()}",
+                                                      image: product?[index].images?[0],
+                                                      onTap: () {
+                                                        Navigator.push(
+                                                          context,
+                                                          MaterialPageRoute(builder: (context) =>
+                                                              ProductDetailsScreen(
+                                                                id: product?[index].id,
+                                                              )),
+                                                        );
+                                                      },
+                                                    );
+                                                  },
+                                                );
+                                              }
+                                            } else if (snapshot.hasError) {
+                                              return Center(child: Text("Error loading products"));
+                                            } else {
+                                              return const ShimmerCart();
+                                            }
+                                          },
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                );
+                              },
+                            ),
                           ),
                         ),
-                      ),
 
 
-                    ],
+                      ],
+                    ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
           ),
         ),

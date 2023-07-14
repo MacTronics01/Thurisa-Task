@@ -24,16 +24,16 @@ class CardWidget extends StatelessWidget {
       onTap: onTap,
       child: Container(
         margin: EdgeInsets.only(left: 15.5.w,right: 15.5.w),
-        width: 220,
-        height: 312,
+        width: 220.w,
+        height: 312.h,
         child: Stack(
           children: [
             Positioned(
-              left: 0,
-              top: 42,
+              left: 0.w,
+              top: 42.h,
               child: Container(
-                width: 220,
-                height: 270,
+                width: 220.w,
+                height: 290.h,
                 decoration: ShapeDecoration(
                   color: Pallet.white,
                   shape: RoundedRectangleBorder(
@@ -50,21 +50,24 @@ class CardWidget extends StatelessWidget {
                 ),
                 child:  Column(
                   children: [
-                    140.0.sbH,
+                    170.0.sbH,
                     Expanded(
-                      child: Text(
-                        title!,
-                        textAlign: TextAlign.center,
-                        style: const TextStyle(
-                          color: Pallet.black,
-                          fontSize: 22,
-                          fontFamily: 'SF Pro Rounded',
-                          fontWeight: FontWeight.w600,
-                          // height: 22.29,
+                      child: Container(
+                        width: 160.w,
+                        margin: EdgeInsets.only(bottom: 15.h),
+                        child: Text(
+                          title!,
+                          textAlign: TextAlign.center,
+                          style: const TextStyle(
+                            color: Pallet.black,
+                            fontSize: 20,
+                            fontFamily: 'SF Pro Rounded',
+                            fontWeight: FontWeight.w600,
+                            // height: 22.29,
+                          ),
                         ),
                       ),
                     ),
-
                     Container(
                       margin: EdgeInsets.only(bottom: 30.h),
                       child: Text(
@@ -83,19 +86,19 @@ class CardWidget extends StatelessWidget {
               ),
             ),
             Positioned(
-              left: 26,
-              top: 0,
+              left: 26.w,
+              top: 0.h,
               child:
               Container(
-                width: 168,
-                height: 189,
+                width: 168.w,
+                height: 189.h,
                 decoration: ShapeDecoration(
                   image:  DecorationImage(
                     image: NetworkImage(image!),
                     fit: BoxFit.fill,
                   ),
                   shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(20),
+                    borderRadius: BorderRadius.circular(20.r),
                   ),
                 ),
               ),

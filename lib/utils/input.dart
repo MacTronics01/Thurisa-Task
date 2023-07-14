@@ -122,7 +122,7 @@ class InputField extends StatelessWidget {
           ),
           initialValue: initialValue,
           showCursor: showCursor,
-          cursorColor: Pallet.white,
+          cursorColor: Pallet.black,
           readOnly: readOnly,
           // style: labelStyle,
           validator: validator,
