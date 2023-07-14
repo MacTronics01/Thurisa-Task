@@ -93,6 +93,7 @@ class CardWidget extends StatelessWidget {
                 width: 168.w,
                 height: 189.h,
                 decoration: ShapeDecoration(
+                  color: Pallet.grey.withOpacity(0.5),
                   image:  DecorationImage(
                     image: NetworkImage(image!),
                     fit: BoxFit.fill,
